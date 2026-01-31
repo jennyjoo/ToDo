@@ -1,7 +1,8 @@
 const { AppError } = require('../../utils/AppError');
 
+// Todo 모델 (TB_TODO)
 class ToDo {
-  constructor({ id, title, content, completed = false, categoryId }) {
+  constructor({ id, title, content, date, completed = false, categoryId }) {
     if (id == null || id === undefined) {
       throw new AppError('COMMON_001');
     }
@@ -19,6 +20,7 @@ class ToDo {
     this.content = content;
     this.completed = completed;
     this.categoryId = categoryId;
+    this.date = date ? new Date(date) : null;
     this.createdAt = new Date();
     this.updatedAt = new Date();
     this.deletedAt = null;

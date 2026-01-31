@@ -1,10 +1,12 @@
 const ToDo = require('./model/todo');
 
+// 가상의 레코드  (DB)
 const TODOS = [
   new ToDo({
     id: 1,
     title: 'Learn Node.js',
     content: 'Node.js 기본 익히기',
+    date: '2026-01-31T14:00:24.424Z',
     categoryId: 1,
   }),
 
@@ -12,10 +14,13 @@ const TODOS = [
     id: 2,
     title: 'Build a ToDo App',
     content: 'Express로 API 서버 만들기',
+    date: '2026-01-31T14:00:24.424Z',
+
     categoryId: 1,
   }),
 ];
 
+// Todo 리포지토리 (TB_TODO)
 class TodoRepository {
   constructor() {
     this.todos = [...TODOS];
@@ -38,15 +43,40 @@ class TodoRepository {
     });
   }
 
+  findByDate(date, orderBy) {
+    const targetDate = new Date(date);
+
+    console.log('targetDate in repo:', targetDate);
+    return this.todos
+      .filter((todo) => {
+        const todoDate = new Date(todo.date);
+        return (
+          todoDate.getFullYear() === targetDate.getFullYear() &&
+          todoDate.getMonth() === targetDate.getMonth() &&
+          todoDate.getDate() === targetDate.getDate()
+        );
+      })
+      .sort((a, b) => {
+        if (orderBy) {
+          if (a[orderBy] < b[orderBy]) return -1;
+          if (a[orderBy] > b[orderBy]) return 1;
+          return 0;
+        }
+        const dateA = a.updatedAt || a.createdAt;
+        const dateB = b.updatedAt || b.createdAt;
+        return dateB - dateA;
+      });
+  }
+
   // ID로 데이터 조회 (find)
   findById(id) {
     return this.todos.find((t) => t.id === id) || null;
   }
 
   // 데이터 추가 (add)
-  create({ title, content, categoryId, completed = false }) {
+  create({ title, content, date, categoryId, completed = false }) {
     const id = this.getNextId();
-    const todo = new ToDo({ id, title, content, categoryId, completed });
+    const todo = new ToDo({ id, title, content, date, categoryId, completed });
     this.todos.push(todo);
     return todo;
   }
