@@ -38,6 +38,7 @@ bower_components
 build/Release
 
 # Dependency directories
+# Dependencies
 node_modules/
 jspm_packages/
 
@@ -56,6 +57,9 @@ web_modules/
 # Optional stylelint cache
 .stylelintcache
 
+# Prettier cache
+.prettiercache
+
 # Optional REPL history
 .node_repl_history
 
@@ -66,21 +70,36 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
+# Environment variables
 .env
 .env.*
 !.env.example
+.env.local
+.env.*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
+# Build outputs
+dist/
+build/
 
 # Next.js build output
 .next
 out
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
 
 # Nuxt.js build / generate output
 .nuxt
 dist
+# OS specific
+.DS_Store
+Thumbs.db
 
 # Gatsby files
 .cache/
@@ -122,6 +141,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Google Project IDX
+.idx/
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
@@ -137,3 +159,6 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+# IDEs
+.vscode/
+.idea/
