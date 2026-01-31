@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"yarn workspace client dev\" \"yarn workspace todo-app dev\"",
+    "client": "yarn workspace client dev",
+    "server": "yarn workspace todo-app dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  /* 메인 컬러 및 텍스트 */
+  --color-sdi-black: #1a1a1a; /* 헤드라인, 버튼 배경, 하단 텍스트 */
+
+  /* 배경 및 레이아웃 */
+  --color-sdi-white: #ffffff; /* 모달 배경 */
+  --color-sdi-gray-bg: #f7f8f9; /* 본문 내 박스 배경 (연한 회색) */
+  --color-sdi-footer-bg: #111111; /* 맨 하단 푸터 영역 배경색 */
+
+  /* 구분선 및 보조 텍스트 */
+  --color-sdi-gray-border: #e5e7eb; /* 박스 테두리 및 구분선 */
+  --color-sdi-gray-text: #666666; /* 작은 안내 문구 (유의사항 등) */
+  --color-sdi-gray-light: #999999; /* 푸터 내 덜 중요한 텍스트 */
+}
