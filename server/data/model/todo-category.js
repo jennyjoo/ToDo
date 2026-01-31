@@ -1,5 +1,6 @@
 const { AppError } = require('../../utils/AppError');
 
+// Todo 카테고리 모델 (TB_TODO_CATEGORY)
 class TodoCategory {
   constructor({ id, name, parentId = null }) {
     if (id == null || id === undefined) {

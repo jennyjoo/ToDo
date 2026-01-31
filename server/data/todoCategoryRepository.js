@@ -1,5 +1,6 @@
 const TodoCategory = require('./model/todo-category');
 
+// 가상의 레코드  (DB)
 const CATEGORIES = [
   new TodoCategory({
     id: 1,
@@ -15,6 +16,7 @@ const CATEGORIES = [
   }),
 ];
 
+// Todo 카테고리 리포지토리 (TB_TODO_CATEGORY)
 class TodoCategoryRepository {
   constructor() {
     this.categories = [...CATEGORIES];
