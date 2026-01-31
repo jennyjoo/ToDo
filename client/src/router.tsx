@@ -7,7 +7,7 @@ import {
 import { Suspense, lazy } from 'react';
 import { cn } from './lib/utils';
 
-const TodoPage = lazy(() => import('./TodoPage'));
+const TodoPage = lazy(() => import('./pages/TodoPage'));
 
 // 공통 스타일 정의 (모듈화)
 const navItemBase = 'block px-4 py-2 rounded-sm font-medium transition-colors';
@@ -15,6 +15,7 @@ const navItemActive = 'bg-sdi-black/10 text-sdi-black';
 const navItemInactive =
   'text-sdi-gray-text hover:bg-sdi-gray-bg hover:text-sdi-black';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const RootLayout = () => {
   return (
     <div className="flex h-screen bg-sdi-gray-bg text-sdi-black">
