@@ -1,3 +1,7 @@
+# Dependencies
+node_modules/
+jspm_packages/
+
 # Logs
 logs
 *.log
@@ -33,14 +37,6 @@ bower_components
 
 # node-waf configuration
 .lock-wscript
-
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
-# Dependency directories
-# Dependencies
-node_modules/
-jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -162,3 +158,9 @@ vite.config.ts.timestamp-*
 # IDEs
 .vscode/
 .idea/
+
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
