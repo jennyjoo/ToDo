@@ -4,6 +4,7 @@ const express = require('express');
 require('express-async-errors'); // 비동기 에러 자동 처리 패치
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // DI를 위한 클래스 및 팩토리 임포트
 const TodoRepository = require('./data/todoRepository');
@@ -45,6 +46,17 @@ const todoController = new TodoController(todoService);
 
 // API 라우트 연결
 app.use('/api/todos', createTodoRoutes(todoController));
+
+const clientBuildPath = path.join(__dirname, '..', 'client', 'dist');
+app.use(express.static(clientBuildPath));
+
+// SPA 라우팅 지원: API 요청이 아닌 경우 index.html 반환
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
 
 // 404 에러 핸들러
 app.use((req, res, next) => {
