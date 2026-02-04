@@ -46,7 +46,6 @@ class TodoRepository {
   findByDate(date, orderBy) {
     const targetDate = new Date(date);
 
-    console.log('targetDate in repo:', targetDate);
     return this.todos
       .filter((todo) => {
         const todoDate = new Date(todo.date);
