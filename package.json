@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "concurrently \"yarn workspace client dev\" \"yarn workspace todo-app dev\"",
     "client": "yarn workspace client dev",
-    "server": "yarn workspace todo-app dev"
+    "server": "yarn workspace todo-app dev",
+    "build": "yarn workspace client build"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"
